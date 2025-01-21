@@ -67,3 +67,8 @@ def memes():
     with open (f"img/{imgran}", "rb") as f:
         picture = discord.File(f)
     return picture
+
+def motivacion():
+    with open ("mot/motivacion 1.jpg","rb") as f:
+        picture = discord.File(f)
+    return picture

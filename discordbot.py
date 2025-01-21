@@ -2,6 +2,7 @@ import discord, os, logic as l
 from dotenv import load_dotenv
 from discord.ext import commands
 from commandAPI import * 
+from Ambiente import *
 
 load_dotenv()
 token = os.getenv("dt")
@@ -61,6 +62,11 @@ async def momo(ctx):
     f = l.memes()
     await ctx.send(file = f)
 
+@bot.command(name="motivame")
+async def motivame(ctx):
+    f = l.motivacion()
+    await ctx.send(file = f)
+
 @bot.command(name="patos")
 async def pato(ctx):
     img_pato = duck_image()
@@ -78,6 +84,21 @@ async def animes(ctx, x):
     
     else:
         await ctx.send("No se pudo encontrar")
+
+
+@bot.command(name="eco")
+async def animes(ctx, opcion:int):
+    if opcion == 1:
+        await ctx.send(embed=etiqueta_reducción())
+
+    elif opcion == 2:
+        await ctx.send(embed=etiqueta_reutilizarReciclar())
+
+    elif opcion == 3:
+        await ctx.send(embed=etiqueta_consumoResponsable())
+
+    else:
+        await ctx.send("Opción Invalida, elija 1,2 o 3")
 
 
 
